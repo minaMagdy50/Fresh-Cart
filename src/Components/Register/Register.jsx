@@ -13,9 +13,9 @@ export default function Rejester() {
     const [err, setErr] = useState('')
     
     let validationSchema = Yup.object({
-        name: Yup.string().required('name is required').min(3, 'Minmim 3 letters').max(15, 'Maxmin 15 letters'),
+        name: Yup.string().required('name is required').min(3, 'Minmim 3 letters').max(25, 'Maxmin 25 letters'),
         email: Yup.string().required('email is required').email('email is invalid'),
-        password: Yup.string().required('password is requrid ').matches(/^[A-Z][\w @]{5,8}$/, 'password should start with a capital letter then 5:8 num or letters'),
+        password: Yup.string().required('password is requrid ').matches(/^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, 'A password contains at least eight characters, including at least one number and includes both lower and uppercase letters and special characters, for example #, ?, !'),
         rePassword: Yup.string().required('rePassword is requred').oneOf([Yup.ref('password')], 'password and repassowrd dont match'),
         phone: Yup.string().required('must enter your phone number').matches(/^01[0-2]\d{8}$/, 'enter an Egyption phone number')
     })

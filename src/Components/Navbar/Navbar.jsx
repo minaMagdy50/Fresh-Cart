@@ -56,6 +56,9 @@ export default function Navbar() {
         <li className="nav-item">
           <Link className="nav-link" to={'wishlist'}> Wishlist</Link>
         </li> 
+        <li className="nav-item">
+          <Link className="nav-link" to={'subcategory'}> subcategory</Link>
+        </li> 
         <li className="nav-item fw-bold">
           <Link to={'cart'} className="nav-link text-warning fw-bold">{localStorageCartItems} <i className="fa-solid fa-cart-shopping text-warning"> </i></Link>
         </li> 

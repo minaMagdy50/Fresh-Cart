@@ -16,7 +16,7 @@ export default function Login() {
 
     let validationSchema = Yup.object({
         email: Yup.string().required('email is required').email('email is invalid'),
-        password: Yup.string().required('password is requrid ').matches(/^[A-Z][\w @]{5,8}$/, 'password should start with a capital letter then 5:8 num or letters')
+        password: Yup.string().required('password is requrid ').matches(/^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, 'A password contains at least eight characters, including at least one number and includes both lower and uppercase letters and special characters, for example #, ?, !')
     })
 
     async function loginSubmit(values) {

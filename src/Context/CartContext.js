@@ -80,7 +80,7 @@ export default function CartContextProvider(props){
 
 
    function checkOutSession(cartId , shippingAddress ){
-    return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:3000` , {
+    return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=https://freshcart-five.vercel.app/` , {
         
     shippingAddress
         

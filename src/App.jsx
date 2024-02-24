@@ -16,6 +16,8 @@ import { Toaster } from 'react-hot-toast'
 // import BrandDetails from './Components/BrandDetails/BrandDetails'
 // import CatagoryDetails from './Components/CatagoryDetails/CatagoryDetails'
 import ListaContextProvider from './Context/ListContext'
+import SubCategory from './Components/SubCategory/SubCategory'
+import SpecificSubCategory from './Components/SpecificSubCategory/SpecificSubCategory'
 // import Wishlist from './Components/Wishlist/Wishlist'
 // import ForgetPassword from './Components/ForgetPassword/ForgetPassword'
 // import Verify from './Components/Verify/Verify'
@@ -76,6 +78,8 @@ export default function App() {
     {path:'wishlist' , element: <Suspense><ProtectedRoute><Wishlist/></ProtectedRoute></Suspense>},
     {path:'checkout/:cartId' , element: <Suspense><ProtectedRoute><CheckOut/></ProtectedRoute></Suspense>},
     {path:'allorders' , element: <Suspense><ProtectedRoute><AllOrders/></ProtectedRoute></Suspense>},
+    {path:'subcategory' , element: <Suspense><ProtectedRoute><SubCategory/></ProtectedRoute></Suspense>},
+    {path:'specificsubsategory/:id' , element: <Suspense><ProtectedRoute><SpecificSubCategory/></ProtectedRoute></Suspense>},
     {path:'register' , element:<Suspense> <Register/></Suspense>},
     {path:'login' , element: <Suspense><Login/></Suspense>},
     {path:'verify' , element:<Suspense> <Verify/></Suspense>},
