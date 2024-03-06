@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import style from './ProductDetails.module.css'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { InfinitySpin, ThreeCircles } from 'react-loader-spinner'
 import Slider from "react-slick";
@@ -88,8 +88,9 @@ export default function ProductDetails() {
              <span>{details.price} EGP</span>
             <span>{details.ratingsAverage} <i className="fa-solid fa-star rating-color"></i> </span>
               </div>
-              <button className='btn w-100 btn-sm bg-main text-light' onClick={()=>{postToCart(details.id)}}>Add to Cart</button>
-
+              {localStorage.getItem('userToken')? <button className='btn w-100 btn-sm bg-main text-light' onClick={()=>{postToCart(details.id)}}>Add to Cart</button>
+ : <Link onClick={()=>{toast.error('You must login first')}} to={'/login'}><button className='btn w-100 btn-sm bg-main text-light' >Add to Cart</button>
+ </Link>}
     </div>
   </div>
 </section>

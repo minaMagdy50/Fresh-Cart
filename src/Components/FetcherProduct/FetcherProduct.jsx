@@ -81,6 +81,8 @@ async function addTowishlist(productId){
 
 
  async function postToCart(id){
+  
+
   let {data} = await addToCart(id)
   setsetNumberOfCartItems(data.numOfCartItems)
   localStorage.setItem('numofcartitems' , data.numOfCartItems)
@@ -123,7 +125,9 @@ async function addTowishlist(productId){
 {post.length > 0 ? post.map(product => <div key={product?.id} className="col-lg-2 col-6 pt-5">
             
             <div className="product shadow rounded-5 p-2">
-             <i className="fa-regular fa-heart fs-3 position-absolute z-3 cursor-pointer p-2"    onClick={()=>{addTowishlist(product?.id)}}></i> 
+            {localStorage.getItem('userToken') ? <i className="fa-regular fa-heart fs-3 position-absolute z-3 cursor-pointer p-2"    onClick={()=>{addTowishlist(product?.id)}}></i> 
+              : <Link onClick={()=>{toast.error('You must login first')}} to={'/login'}><i className="fa-regular fa-heart fs-3 position-absolute z-3 cursor-pointer p-2"></i> </Link>  
+}
            
             <Link to={`/productDetails/${product?.id}`}>
             <div className='overflow-hidden'>
@@ -139,7 +143,7 @@ async function addTowishlist(productId){
               </div>
               </Link>
               
-              <button onClick={()=> {postToCart(product?.id)} } className='btn w-100 btn-sm bg-main text-light rounded-4 my-2'> <i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+              {localStorage.getItem('userToken') ?  <button onClick={()=> {postToCart(product?.id)} } className='btn w-100 btn-sm bg-main text-light rounded-4 my-2'> <i className="fa-solid fa-cart-plus"></i> Add to Cart</button> : <Link onClick={()=>{toast.error('You must login first')}} to={'/login'}> <button  className='btn w-100 btn-sm bg-main text-light rounded-4 my-2'> <i className="fa-solid fa-cart-plus"></i> Add to Cart</button></Link> }
 
           </div>
                       
@@ -147,7 +151,9 @@ async function addTowishlist(productId){
           <div key={product?.id} className="col-lg-2 col-6 pt-5">
             
             <div className="product shadow rounded-5 p-2">
-             <i className="fa-regular fa-heart fs-3 position-absolute z-3 cursor-pointer p-2"    onClick={()=>{addTowishlist(product?.id)}}></i> 
+              {localStorage.getItem('userToken') ? <i className="fa-regular fa-heart fs-3 position-absolute z-3 cursor-pointer p-2"    onClick={()=>{addTowishlist(product?.id)}}></i> 
+              : <Link onClick={()=>{toast.error('You must login first')}} to={'/login'}><i className="fa-regular fa-heart fs-3 position-absolute z-3 cursor-pointer p-2"></i> </Link>  
+}
            
             <Link to={`/productDetails/${product?.id}`}>
             <div className='overflow-hidden'>
@@ -163,7 +169,8 @@ async function addTowishlist(productId){
               </div>
               </Link>
               
-              <button onClick={()=> {postToCart(product?.id)} } className='btn w-100 btn-sm bg-main text-light rounded-4 my-2'> <i className="fa-solid fa-cart-plus"></i> Add to Cart</button>
+
+              {localStorage.getItem('userToken') ?  <button onClick={()=> {postToCart(product?.id)} } className='btn w-100 btn-sm bg-main text-light rounded-4 my-2'> <i className="fa-solid fa-cart-plus"></i> Add to Cart</button> : <Link onClick={()=>{toast.error('You must login first')}} to={'/login'}> <button  className='btn w-100 btn-sm bg-main text-light rounded-4 my-2'> <i className="fa-solid fa-cart-plus"></i> Add to Cart</button></Link> }
 
           </div>
                       

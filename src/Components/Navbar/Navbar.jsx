@@ -10,19 +10,19 @@ import { CartContext } from '../../Context/CartContext'
 
 export default function Navbar() {
 
-  let navigate =  useNavigate()
+    let navigate =  useNavigate()
 
-  let {userToken , setUserToken} = useContext(UserContext)
+    let {userToken , setUserToken} = useContext(UserContext)
 
-  function logOut (){
-    toast.success('Bye', {
-      icon:'😭'
-    })
-    setUserToken(null)
-    localStorage.removeItem('userToken')
-    navigate('/login')
-    
-  }
+    function logOut (){
+      toast.success('Bye', {
+        icon:'😭'
+      })
+      setUserToken(null)
+      localStorage.removeItem('userToken')
+      navigate('/login')
+      
+    }
 
  let {numberOfCartItems , setsetNumberOfCartItems} =  useContext(CartContext)
 
@@ -39,7 +39,6 @@ export default function Navbar() {
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      {userToken != null ? <>
         <ul className="navbar-nav fw-bold ms-auto mb-2 mb-lg-0">
         <li className="nav-item">
           <Link className="nav-link" to={''}>Home</Link>
@@ -63,7 +62,7 @@ export default function Navbar() {
           <Link to={'cart'} className="nav-link text-warning fw-bold">{localStorageCartItems} <i className="fa-solid fa-cart-shopping text-warning"> </i></Link>
         </li> 
       </ul>
-      </> : ''  }
+    
       
     
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">

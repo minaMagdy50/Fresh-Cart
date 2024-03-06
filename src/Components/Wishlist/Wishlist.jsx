@@ -73,12 +73,7 @@ if (wishlist?.count ==  0 ) {
 
   </>
 }
-
-
-
-
-
-
+else if (localStorage.getItem('userToken')) {
   return <>
   {loading ? <div className='loading'>      
   <ThreeCircles
@@ -124,4 +119,33 @@ if (wishlist?.count ==  0 ) {
   }
 
   </>
+}
+else {
+  return <>
+  <section className='py-5 my-5'>
+    <div className='text-center my-5 py-5'>
+    <h1 className='text-center fw-bold pb-2 text-main'><i className="fa-solid fa-hand-holding-heart"></i>Wish List</h1>
+  
+      <h2 className='pb-2'>You should Login first to show and add to wishlist</h2>
+      <Link to={'/login'}>
+      <button class="button50">
+    <span class="button_lg50">
+        <span class="button_sl50"></span>
+        <span class="button_text50">Login Now</span>
+    </span>
+</button>
+      </Link>
+      
+    </div>
+  </section>
+  </>
+
+}
+
+
+
+
+
+
+
 }
